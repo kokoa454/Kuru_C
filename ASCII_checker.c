@@ -13,11 +13,11 @@ int main(void){
 		list[26 + i] = 'a' + i;
 	}
 	printf("Welcome to ASCII code checker!\n");
-	printf("note : only one input can be loaded, even if you enter 2 or more alphabets.\n\n");
+	printf("note : only first input alphabet can be loaded, even if you enter 2 or more alphabets.\n\n");
 	printf("Enter a character whose ASCII code you'd like to know: ");
 	
 	while(scanf("%c", &character) != 1 || !isalpha(character)){
-		printf("Enter only one alphabetical character: ");
+		printf("Enter only alphabetical character: ");
 		while(getchar() != '\n');
 	}
 	
