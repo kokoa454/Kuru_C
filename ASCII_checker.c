@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 int main(void){
 	char character;
@@ -11,11 +12,13 @@ int main(void){
 	for(int i = 0; i < 26; i++){
 		list[26 + i] = 'a' + i;
 	}
-	
+	printf("Welcome to ASCII code checker!\n");
+	printf("note : only one input can be loaded, even if you enter 2 or more alphabets.\n\n");
 	printf("Enter a character whose ASCII code you'd like to know: ");
-	while(scanf("%c", &character) != 1 || getchar() != '\n'){
+	
+	while(scanf("%c", &character) != 1 || !isalpha(character)){
 		printf("Enter only one alphabetical character: ");
-		while((getchar()) != '\n');
+		while(getchar() != '\n');
 	}
 	
 	int flg = 0;
