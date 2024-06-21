@@ -2,6 +2,7 @@
 
 void comp(int arraySub[], int *min, int *max);
 int closeOrNot(void);
+int checkMoreOrNot(void);
 
 
 int main(void){
@@ -24,6 +25,8 @@ int main(void){
   comp(array, &min, &max); //minとmaxのアドレスがcomp関数に渡される
 
   printf("Minimum value in the array is %d\nMaximum value in the array is %d\n", min, max);
+
+  checkMoreOrNot();
   return 0;
 }
 
@@ -51,6 +54,24 @@ int closeOrNot(void) {
 
   do {
     printf("Do you want to re-enter numbers again? (y/n): ");
+
+    scanf("%c", &response);
+
+    if (response == 'y') {
+      main();
+      return 0;
+    } else if (response == 'n'){
+      printf("Good bye!\n");
+      return 0;
+    }
+  } while(response != 'y' && response != 'n');
+}
+
+int checkMoreOrNot(void){
+  char response;
+
+  do {
+    printf("Do you want to check another numbers? (y/n): ");
 
     scanf("%c", &response);
 
