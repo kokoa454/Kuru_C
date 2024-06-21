@@ -5,28 +5,26 @@ int closeOrNot(void);
 
 
 int main(void){
-  while(1){
-    int array[10];
-    int i = 0;
-    int min = 100, max = 0;
+  int array[10];
+  int i = 0;
+  int min = 100, max = 0;
 
-    do {
-      printf("No.%d: ", i + 1);
-      scanf("%d", &array[i]);
-      i++;
+  do {
+    printf("No.%d: ", i + 1);
+    scanf("%d", &array[i]);
+    i++;
 
-      if (i > 9) {
-        printf("ERROR: More than 10 numbers entered!\n");
-        closeOrNot();
-        break;
-      }
-    } while(array[i - 1] != -1);
+    if (i >= 11) {
+      printf("ERROR: More than 10 numbers entered!\n");
+      closeOrNot();
+      break;
+    }
+  } while(array[i - 1] != -1);
 
-    comp(array, &min, &max); //minとmaxのアドレスがcomp関数に渡される
+  comp(array, &min, &max); //minとmaxのアドレスがcomp関数に渡される
 
-    printf("Minimum value in the array is %d\nMaximum value in the array is %d\n", min, max);
-    return 0;
-  }
+  printf("Minimum value in the array is %d\nMaximum value in the array is %d\n", min, max);
+  return 0;
 }
 
 
@@ -54,11 +52,11 @@ int closeOrNot(void) {
   do {
     printf("Do you want to re-enter numbers again? (y/n): ");
 
-    response = getchar();
-    while (getchar() != '\n');
+    scanf("%c", &response);
 
     if (response == 'y') {
-      return 1;
+      main();
+      return 0;
     } else if (response == 'n'){
       printf("Good bye!\n");
       return 0;
