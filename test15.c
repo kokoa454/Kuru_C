@@ -12,11 +12,23 @@ int main(void){
 
   do {
     printf("No.%d: ", i + 1);
-    scanf("%d", &array[i]);
+
+    if (scanf("%d", &array[i]) != 1) {
+      printf("Invalid input. Enter a number again!: ");
+      while (getchar() != '\n');
+      continue;
+    }
+
+    if (array[i] > 100 || array[i] < -2) {
+       printf("Invalid input. Enter a number between -2 and 100!\n");
+       continue;
+    }
+
     i++;
 
     if (i >= 11) {
       printf("ERROR: More than 10 numbers entered!\n");
+      while (getchar() != '\n');
       closeOrNot();
       break;
     }
@@ -25,7 +37,7 @@ int main(void){
   comp(array, &min, &max); //minとmaxのアドレスがcomp関数に渡される
 
   printf("Minimum value in the array is %d\nMaximum value in the array is %d\n", min, max);
-
+  while (getchar() != '\n');
   checkMoreOrNot();
   return 0;
 }
@@ -55,7 +67,7 @@ int closeOrNot(void) {
   do {
     printf("Do you want to re-enter numbers again? (y/n): ");
 
-    scanf("%c", &response);
+    scanf(" %c", &response);
 
     if (response == 'y') {
       main();
@@ -63,9 +75,12 @@ int closeOrNot(void) {
     } else if (response == 'n'){
       printf("Good bye!\n");
       return 0;
+    }else {
+      printf("Invalid input. Please enter 'y' or 'n'.\n");
     }
   } while(response != 'y' && response != 'n');
 }
+
 
 int checkMoreOrNot(void){
   char response;
@@ -73,7 +88,7 @@ int checkMoreOrNot(void){
   do {
     printf("Do you want to check another numbers? (y/n): ");
 
-    scanf("%c", &response);
+    scanf(" %c", &response);
 
     if (response == 'y') {
       main();
@@ -81,6 +96,8 @@ int checkMoreOrNot(void){
     } else if (response == 'n'){
       printf("Good bye!\n");
       return 0;
+    } else {
+      printf("Invalid input. Please enter 'y' or 'n'.\n");
     }
   } while(response != 'y' && response != 'n');
 }
