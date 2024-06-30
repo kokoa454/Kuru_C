@@ -18,6 +18,10 @@ int main(void){
 		printf("Enter the information of person %d\n", count);
 		
 		person_input(&data, count);
+	}
+	
+	
+	for(int count = 1; count < 4; count++){
 		
 		person_print(&data, count);
 	}
