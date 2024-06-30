@@ -20,6 +20,7 @@ int main(void){
 		person_input(&data, count);
 	}
 	
+	printf("\n\n\n");
 	
 	for(int count = 1; count < 4; count++){
 		
@@ -46,7 +47,7 @@ void person_print(person *pdata, int count){
 	printf("Name of person %d is %s\n", count, pdata->name);
 	printf("Age of person %d is %d\n", count, pdata->age);
 	printf("Sex of person %d is %s\n", count, pdata->sex);
-	printf("\n\n");
+	printf("\n");
 	
 	return;
 }
