@@ -17,13 +17,13 @@ int main(void){
 	hold = calc(year);
 	
 	switch(hold){
-	case 0:
+	case PRINT_NO:
 		printf("The Olympic games won't be held in %d.", year);
 		break;
-	case 1:
+	case PRINT_SUMMER:
 		printf("The Summer Olympic games will be held in %d.", year);
 		break;
-	case 2:
+	case PRINT_WINTER:
 		printf("The Winter Olympic games will be held in %d.", year);
 	}
 	
