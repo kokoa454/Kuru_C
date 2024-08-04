@@ -1,3 +1,5 @@
+//ヘッダーファイルとソースファイルに分割する
+
 #include <stdio.h>
 #include <string.h>
 
